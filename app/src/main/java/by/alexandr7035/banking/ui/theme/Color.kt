@@ -2,7 +2,7 @@ package by.alexandr7035.banking.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Blue100 = Color(0xFF100D40)
+val OrangePrimary = Color(0xFFF05324)
 
 val Gray75 = Color(0xFF262626)
 val Gray60 = Color(0xFF333333)

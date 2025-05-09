@@ -18,7 +18,7 @@ import by.alexandr7035.banking.domain.features.transactions.model.TransactionTyp
 import by.alexandr7035.banking.ui.core.error.asUiTextError
 import by.alexandr7035.banking.ui.core.extensions.maskCardId
 import by.alexandr7035.banking.ui.feature_account.MoneyAmountUi
-import by.alexandr7035.banking.ui.theme.Blue100
+import by.alexandr7035.banking.ui.theme.OrangePrimary
 
 class TransactionNotificationHelper(
     private val applicationContext: Context
@@ -83,7 +83,7 @@ class TransactionNotificationHelper(
             .setContentTitle(notificationUi.title)
             .setContentText(notificationUi.message)
             .setSmallIcon(R.drawable.ic_logo_vector)
-            .setColor(Blue100.toArgb())
+            .setColor(OrangePrimary.toArgb())
             .setContentIntent(pendingIntent)
             .build()
     }
