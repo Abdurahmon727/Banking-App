@@ -16,6 +16,8 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -107,7 +109,6 @@ fun HomeScreen_Ui(
             )
             .padding(bottom = 24.dp)
     ) {
-        val ctx = LocalContext.current
 
         ScreenHeader(
             toolbar = {
@@ -165,9 +166,10 @@ fun HomeScreen_Ui(
         if (state.savings.isNotEmpty()) {
             Spacer(Modifier.height(8.dp))
 
-            ScreenSectionDivider(modifier = Modifier
-                .padding(horizontal = 24.dp)
-                .fillMaxWidth(),
+            ScreenSectionDivider(
+                modifier = Modifier
+                    .padding(horizontal = 24.dp)
+                    .fillMaxWidth(),
                 title = UiText.StringResource(R.string.your_saving),
                 onAction = {
                     onGoToDestination.invoke(NavDestinations.RootGraph.SavingsList)
@@ -195,7 +197,8 @@ fun HomeScreen_Ui(
 private fun HomeToolbar(name: String) {
     val ctx = LocalContext.current
 
-    TopAppBar(title = {
+    TopAppBar(
+        title = {
         Column(Modifier.padding(horizontal = 8.dp)) {
             Text(
                 text = stringResource(id = R.string.welcome_back), style = TextStyle(
@@ -222,7 +225,7 @@ private fun HomeToolbar(name: String) {
     },
         actions = {
             IconButton(onClick = {
-                ctx.showToast("TODO")
+                ctx.showToast("Not yet implemented")
             }) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_bell),
@@ -327,7 +330,10 @@ fun HomeScreen_Empty() {
     ScreenPreview {
         HomeScreen_Ui(
             HomeState.Success(
-                profile = ProfileUi.mock(), cards = emptyList(), savings = emptyList(), balance = flowOf(MoneyAmountUi("$2000"))
+                profile = ProfileUi.mock(),
+                cards = emptyList(),
+                savings = emptyList(),
+                balance = flowOf(MoneyAmountUi("$2000"))
             ),
         )
     }

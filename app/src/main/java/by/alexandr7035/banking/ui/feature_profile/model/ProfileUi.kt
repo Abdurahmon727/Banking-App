@@ -14,12 +14,12 @@ data class ProfileUi(
 ) {
     companion object {
         fun mock() = ProfileUi(
-            fullName = "Alexander Michael",
-            nickName = "@alexandermichael",
-            id = "0896 2102 7821",
-            email = "test@example.com",
+            fullName = "Abdurakhmon Dedamirzaev",
+            nickName = "@abdurahmon",
+            id = "14918248",
+            email = "abdurahmon727.uz@gmail.com",
             profilePicUrl = "https://api.dicebear.com/7.x/open-peeps/svg?seed=Bailey",
-            tier = "Basic"
+            tier = "Premium"
         )
 
         fun mapFromDomain(profile: CompactProfile) = ProfileUi(

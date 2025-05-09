@@ -15,12 +15,12 @@ class ProfileRepositoryMock(
 
         return@withContext CompactProfile(
             id = "089621027821",
-            firstName = "Alexander",
-            lastName = "Michael",
-            nickName = "@alexandermichael",
-            email = "test@example.com",
+            firstName = "Abdurakhmon",
+            lastName = "Dedamirzaev",
+            nickName = "@abdurahmon",
+            email = "abdurahmon727.uz@gmail.com",
             profilePicUrl = "https://api.dicebear.com/7.x/open-peeps/svg?seed=Bailey",
-            tier = ProfileTier.BASIC,
+            tier = ProfileTier.PREMIUM,
         )
     }
 

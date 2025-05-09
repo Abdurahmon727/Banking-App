@@ -14,25 +14,22 @@ data class AddCardState(
 ) {
     companion object {
         fun mock(
-            isLoading: Boolean = false,
-            showDatePicker: Boolean = false
+            isLoading: Boolean = false, showDatePicker: Boolean = false
         ): AddCardState {
             // + 365 days
             val randomMockCard = MockCardConstants.randomCard()
             val mockExpiration = System.currentTimeMillis() + 31556926000L
 
-            return  AddCardState(
+            return AddCardState(
                 formFields = AddCardFormFields(
                     cardNumber = UiField(randomMockCard.first),
-                    cardHolder = UiField("Alexander Michael"),
-                    addressFirstLine = UiField("2890 Pangandaran Street"),
+                    cardHolder = UiField("Abdurakhmon Dedamirzaev"),
+                    addressFirstLine = UiField("2890 Mirzo Ulugbek Street"),
                     addressSecondLine = UiField(""),
-                    cvvCode = UiField("123"),
-                    expirationDateTimestamp =  mockExpiration,
+                    cvvCode = UiField("761"),
+                    expirationDateTimestamp = mockExpiration,
                     expirationDate = UiField(mockExpiration.getFormattedDate("dd MMM yyyy"))
-                ),
-                isLoading = isLoading,
-                showDatePicker = showDatePicker
+                ), isLoading = isLoading, showDatePicker = showDatePicker
             )
         }
     }

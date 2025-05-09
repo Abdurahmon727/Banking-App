@@ -154,16 +154,3 @@ fun AccountActionPanel_Skeleton() {
         }
     }
 }
-
-
-@Preview
-@Composable
-fun AccountActionPanel_Preview() {
-    AccountActionPanel(balanceFlow = flowOf(MoneyAmountUi("$2000"))) {}
-}
-
-@Preview
-@Composable
-fun AccountActionPanel_Skeleton_Preview() {
-    AccountActionPanel_Skeleton()
-}
