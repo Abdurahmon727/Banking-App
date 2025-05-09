@@ -16,21 +16,20 @@ class LoginRepositoryMock(
     private val securedPrefs: SharedPreferences
 ) : LoginRepository {
 
-    override suspend fun loginWithEmail(email: String, password: String) = withContext(coroutineDispatcher) {
-        delay(MOCK_DELAY)
+    override suspend fun loginWithEmail(email: String, password: String) =
+        withContext(coroutineDispatcher) {
+            delay(MOCK_DELAY)
 
-        // TODO login attempts
-        if (email == MOCK_LOGIN_EMAIL && password == MOCK_PASSWORD) {
-            prefs.push(PrefKeys.IS_LOGGED_IN.name, true)
-            return@withContext
+            // TODO login attempts
+            if (email == MOCK_LOGIN_EMAIL && password == MOCK_PASSWORD) {
+                prefs.push(PrefKeys.IS_LOGGED_IN.name, true)
+                return@withContext
+            } else if (email != MOCK_LOGIN_EMAIL) {
+                throw AppError(ErrorType.USER_NOT_FOUND)
+            } else {
+                throw AppError(ErrorType.WRONG_PASSWORD)
+            }
         }
-        else if (email != MOCK_LOGIN_EMAIL) {
-            throw AppError(ErrorType.USER_NOT_FOUND)
-        }
-        else {
-            throw AppError(ErrorType.WRONG_PASSWORD)
-        }
-    }
 
     override suspend fun checkIfLoggedIn(): Boolean {
         delay(MOCK_DELAY)
@@ -49,8 +48,8 @@ class LoginRepositoryMock(
     }
 
     companion object {
-        private const val MOCK_LOGIN_EMAIL = "example@mail.com"
-        private const val MOCK_PASSWORD = "1234567Ab"
+        private const val MOCK_LOGIN_EMAIL = "abdurahmon727.uz@gmail.com"
+        private const val MOCK_PASSWORD = "ABC_12345678"
         private const val MOCK_DELAY = 1000L
     }
 }

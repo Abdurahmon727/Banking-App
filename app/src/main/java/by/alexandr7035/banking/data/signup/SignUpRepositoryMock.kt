@@ -19,26 +19,25 @@ class SignUpRepositoryMock(
     private val otpRepository: OtpRepository,
     private val prefs: KsPrefs
 ) : SignUpRepository {
-    override suspend fun signUpWithEmail(payload: SignUpPayload) = withContext(coroutineDispatcher) {
-        delay(MOCK_DELAY)
+    override suspend fun signUpWithEmail(payload: SignUpPayload) =
+        withContext(coroutineDispatcher) {
+            delay(MOCK_DELAY)
 
-        if (payload.email == MOCK_LOGIN_EMAIL && payload.password == MOCK_PASSWORD) {
-            return@withContext
-        } else {
-            throw AppError(ErrorType.UNKNOWN_ERROR)
+            if (payload.email == MOCK_LOGIN_EMAIL && payload.password == MOCK_PASSWORD) {
+                return@withContext
+            } else {
+                throw AppError(ErrorType.UNKNOWN_ERROR)
+            }
         }
-    }
 
     override suspend fun confirmSignUpWithEmail(
-        otpCode: String,
-        otpConfiguration: OtpConfiguration
+        otpCode: String, otpConfiguration: OtpConfiguration
     ): OtpVerificationResponse = withContext(coroutineDispatcher) {
         delay(MOCK_DELAY)
 
         val signUpResult = OperationResult.runWrapped {
             otpRepository.verifyOtpCode(
-                otpConfiguration = otpConfiguration,
-                code = otpCode
+                otpConfiguration = otpConfiguration, code = otpCode
             )
         }
 
@@ -59,8 +58,8 @@ class SignUpRepositoryMock(
     }
 
     companion object {
-        private const val MOCK_LOGIN_EMAIL = "example@mail.com"
-        private const val MOCK_PASSWORD = "1234567Ab"
+        private const val MOCK_LOGIN_EMAIL = "abdurahmon727.uz@gmail.com"
+        private const val MOCK_PASSWORD = "ABC_12345678"
         private const val MOCK_DELAY = 1000L
     }
 }

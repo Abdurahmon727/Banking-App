@@ -21,16 +21,14 @@ data class InitSignUpState(
     companion object {
         fun mock() = InitSignUpState(
             fields = InitSignUpFields(
-                fullName = UiField("Alexandr Michael"),
-                email = UiField("example@mail.com"),
-                password = UiField("1234567Ab"),
+                fullName = UiField("Abdurakhmon Dedamirzaev"),
+                email = UiField("abdurahmon727.uz@gmail.com"),
+                password = UiField("ABC_12345678"),
             ),
         )
     }
 }
 
 enum class InitSignUpFieldType {
-    EMAIL,
-    PASSWORD,
-    FULL_NAME
+    EMAIL, PASSWORD, FULL_NAME
 }

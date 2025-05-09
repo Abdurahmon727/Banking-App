@@ -13,8 +13,8 @@ data class LoginScreenState(
     companion object {
         fun mock() = LoginScreenState(
             formFields = LoginFormFields(
-                loginField = UiField("example@mail.com"),
-                passwordField = UiField("1234567Ab")
+                loginField = UiField("abdurahmon727.uz@gmail.com"),
+                passwordField = UiField("ABC_12345678")
             )
         )
     }
@@ -26,6 +26,5 @@ data class LoginFormFields(
 )
 
 enum class LoginFieldType {
-    EMAIL,
-    PASSWORD
+    EMAIL, PASSWORD
 }
