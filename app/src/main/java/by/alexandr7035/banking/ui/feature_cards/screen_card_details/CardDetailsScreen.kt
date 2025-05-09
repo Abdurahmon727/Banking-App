@@ -217,7 +217,7 @@ private fun CardDetailsScreen_Ui(
                 fontSize = 16.sp,
                 fontFamily = primaryFontFamily,
                 fontWeight = FontWeight.SemiBold,
-                color = Color(0xFF100D40),
+                color =MaterialTheme.colorScheme.primary,
             )
         )
 
@@ -246,7 +246,7 @@ private fun CardDetailsScreen_Ui(
                 fontSize = 16.sp,
                 fontFamily = primaryFontFamily,
                 fontWeight = FontWeight.SemiBold,
-                color = Color(0xFF100D40),
+                color = MaterialTheme.colorScheme.primary,
             )
         )
 

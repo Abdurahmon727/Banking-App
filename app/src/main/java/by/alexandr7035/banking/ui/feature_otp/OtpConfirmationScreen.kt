@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -39,37 +40,31 @@ import by.alexandr7035.banking.ui.theme.primaryFontFamily
 
 @Composable
 fun OtpConfirmationScreen(
-    onIntent: (OtpConfirmationIntent) -> Unit = {},
-    state: OtpConfirmationState
+    onIntent: (OtpConfirmationIntent) -> Unit = {}, state: OtpConfirmationState
 ) {
     val focusManager = LocalFocusManager.current
 
-    BoxWithConstraints(
-        modifier = Modifier
-            .pointerInput(Unit) {
-                detectTapGestures(onTap = {
-                    focusManager.clearFocus()
-                })
-            }
-            .fillMaxSize()
-    ) {
+    BoxWithConstraints(modifier = Modifier
+        .pointerInput(Unit) {
+            detectTapGestures(onTap = {
+                focusManager.clearFocus()
+            })
+        }
+        .fillMaxSize()) {
         Column(
             modifier = Modifier
                 .height(maxHeight)
                 .width(maxWidth)
                 .verticalScroll(rememberScrollState())
                 .padding(
-                    vertical = 40.dp,
-                    horizontal = 24.dp
-                ),
-            horizontalAlignment = Alignment.CenterHorizontally
+                    vertical = 40.dp, horizontal = 24.dp
+                ), horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
             Spacer(Modifier.height(72.dp))
 
             Text(
-                text = stringResource(R.string.verify_account),
-                style = TextStyle(
+                text = stringResource(R.string.verify_account), style = TextStyle(
                     fontSize = 24.sp,
                     fontFamily = primaryFontFamily,
                     fontWeight = FontWeight.SemiBold,
@@ -100,17 +95,13 @@ fun OtpConfirmationScreen(
             )
 
             OTPField(
-                value = state.code.value,
-                onValueChange = {
+                value = state.code.value, onValueChange = {
                     onIntent(OtpConfirmationIntent.CodeChanged(it))
-                },
-                modifier = Modifier.padding(vertical = 40.dp),
-                otpLength = state.codeLength
+                }, modifier = Modifier.padding(vertical = 40.dp), otpLength = state.codeLength
             )
 
             Text(
-                text = "Haven’t received verification code?",
-                style = TextStyle(
+                text = "Haven’t received verification code?", style = TextStyle(
                     fontSize = 14.sp,
                     lineHeight = 20.sp,
                     fontFamily = primaryFontFamily,
@@ -122,12 +113,11 @@ fun OtpConfirmationScreen(
 
             TextButton(onClick = { onIntent(OtpConfirmationIntent.ResendCode) }) {
                 Text(
-                    text = stringResource(R.string.resend_code),
-                    style = TextStyle(
+                    text = stringResource(R.string.resend_code), style = TextStyle(
                         fontSize = 16.sp,
                         fontFamily = primaryFontFamily,
                         fontWeight = FontWeight.SemiBold,
-                        color = Color(0xFF100D40),
+                        color = MaterialTheme.colorScheme.primary,
                         textAlign = TextAlign.Center,
                         textDecoration = TextDecoration.Underline,
                     )

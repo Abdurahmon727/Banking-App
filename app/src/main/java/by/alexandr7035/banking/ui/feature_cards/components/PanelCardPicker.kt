@@ -77,8 +77,7 @@ fun PanelCardPicker(
                 selectedCard != null -> {
                     SmallCardIconCustomizable(
                         cardUi = selectedCard,
-                        modifier = Modifier
-                            .size(cardSize),
+                        modifier = Modifier.size(cardSize),
                         numberSize = 6.sp,
                         labelSize = 4.sp,
                         balanceSize = 7.sp,
@@ -89,8 +88,7 @@ fun PanelCardPicker(
                     Spacer(Modifier.width(16.dp))
 
                     Text(
-                        text = selectedCard.cardType.asString(),
-                        style = TextStyle(
+                        text = selectedCard.cardType.asString(), style = TextStyle(
                             fontSize = 12.sp,
                             lineHeight = 20.sp,
                             fontFamily = primaryFontFamily,
@@ -107,14 +105,15 @@ fun PanelCardPicker(
                                 fontSize = 16.sp,
                                 fontFamily = primaryFontFamily,
                                 fontWeight = FontWeight(600),
-                                color = Color(0xFF100D40),
+                                color = MaterialTheme.colorScheme.primary,
                             )
                         )
 
                         Spacer(Modifier.width(6.dp))
 
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_down_arrrow), contentDescription = "Drop down"
+                            painter = painterResource(id = R.drawable.ic_down_arrrow),
+                            contentDescription = "Drop down"
                         )
                     }
                 }
@@ -139,14 +138,15 @@ fun PanelCardPicker(
                                 fontSize = 16.sp,
                                 fontFamily = primaryFontFamily,
                                 fontWeight = FontWeight(600),
-                                color = Color(0xFF100D40),
+                                color = Color(0xFFF05324),
                             )
                         )
 
                         Spacer(Modifier.width(6.dp))
 
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_down_arrrow), contentDescription = "Drop down"
+                            painter = painterResource(id = R.drawable.ic_down_arrrow),
+                            contentDescription = "Drop down"
                         )
                     }
                 }

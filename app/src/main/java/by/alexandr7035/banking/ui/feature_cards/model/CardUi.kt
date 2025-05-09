@@ -1,5 +1,6 @@
 package by.alexandr7035.banking.ui.feature_cards.model
 
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.graphics.Color
 import by.alexandr7035.banking.R
 import by.alexandr7035.banking.domain.features.cards.model.CardType
@@ -29,7 +30,7 @@ data class CardUi(
 ) {
     companion object {
         fun mock(
-            cardColor: Color = Color(0xFF100D40),
+            cardColor: Color = Color(0xFFF05324),
         ): CardUi {
             val mockNumber = "2298126833989874"
 
@@ -72,7 +73,7 @@ data class CardUi(
                 },
                 cardColor = when (card.cardType) {
                     CardType.DEBIT -> {
-                        Color(0xFF100D40)
+                        Color(0xFFF05324)
                     }
 
                     CardType.CREDIT -> {

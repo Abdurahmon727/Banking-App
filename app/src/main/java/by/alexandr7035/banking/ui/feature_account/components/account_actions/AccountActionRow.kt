@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -137,7 +138,7 @@ private fun AccountActionItem(
                 lineHeight = 20.sp,
                 fontFamily = primaryFontFamily,
                 fontWeight = FontWeight.Normal,
-                color = Color(0xFF100D40),
+                color = MaterialTheme.colorScheme.primary,
                 textAlign = TextAlign.Center,
             )
         )

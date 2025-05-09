@@ -101,7 +101,7 @@ fun PagerTab(
                         lineHeight = 20.sp,
                         fontFamily = primaryFontFamily,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF100D40),
+                        color = MaterialTheme.colorScheme.primary,
                     )
                 )
             } else {

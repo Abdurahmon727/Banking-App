@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -49,7 +50,10 @@ fun ContactPicker(
 
     when {
         isLoading -> ContactSelector_Skeleton(modifier)
-        selectedContact != null -> ContactPicker_Selected(modifier, selectedContact, onChooseContactClick)
+        selectedContact != null -> ContactPicker_Selected(
+            modifier, selectedContact, onChooseContactClick
+        )
+
         selectedContact == null -> ContactPicker_NotSelected(modifier, onChooseContactClick)
     }
 
@@ -57,19 +61,14 @@ fun ContactPicker(
 
 @Composable
 private fun ContactPicker_Selected(
-    modifier: Modifier,
-    selectedContact: ContactUi,
-    onChooseContactClick: () -> Unit = {}
+    modifier: Modifier, selectedContact: ContactUi, onChooseContactClick: () -> Unit = {}
 ) {
     Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
+        modifier = modifier, verticalAlignment = Alignment.CenterVertically
     ) {
-        val imageReq = ImageRequest.Builder(LocalContext.current)
-            .data(selectedContact.profilePictureUrl)
-            .decoderFactory(SvgDecoder.Factory())
-            .crossfade(true)
-            .build()
+        val imageReq =
+            ImageRequest.Builder(LocalContext.current).data(selectedContact.profilePictureUrl)
+                .decoderFactory(SvgDecoder.Factory()).crossfade(true).build()
 
         AsyncImage(
             model = imageReq,
@@ -84,34 +83,27 @@ private fun ContactPicker_Selected(
         Spacer(Modifier.width(16.dp))
 
         Column(
-            Modifier
-                .weight(1f, fill = true)
+            Modifier.weight(1f, fill = true)
         ) {
             Text(
-                text = selectedContact.name,
-                style = TextStyle(
+                text = selectedContact.name, style = TextStyle(
                     fontSize = 14.sp,
                     lineHeight = 20.sp,
                     fontFamily = primaryFontFamily,
                     fontWeight = FontWeight.Medium,
                     color = Color(0xFF333333),
-                ),
-                overflow = TextOverflow.Ellipsis,
-                maxLines = 1
+                ), overflow = TextOverflow.Ellipsis, maxLines = 1
             )
 
             Spacer(Modifier.height(8.dp))
 
             Text(
-                text = selectedContact.cardNumber,
-                style = TextStyle(
+                text = selectedContact.cardNumber, style = TextStyle(
                     fontSize = 12.sp,
                     fontFamily = primaryFontFamily,
                     fontWeight = FontWeight.Normal,
-                    color = Color(0xFF100D40),
-                ),
-                overflow = TextOverflow.Ellipsis,
-                maxLines = 1
+                    color = Color(0xFFF05324),
+                ), overflow = TextOverflow.Ellipsis, maxLines = 1
             )
         }
 
@@ -127,8 +119,7 @@ private fun ContactPicker_Selected(
 
 @Composable
 private fun ContactPicker_NotSelected(
-    modifier: Modifier,
-    onChooseContactClick: () -> Unit
+    modifier: Modifier, onChooseContactClick: () -> Unit
 ) {
     Row(modifier = modifier) {
         TextButton(onClick = { onChooseContactClick() }) {
@@ -137,7 +128,7 @@ private fun ContactPicker_NotSelected(
                     fontSize = 16.sp,
                     fontFamily = primaryFontFamily,
                     fontWeight = FontWeight(600),
-                    color = Color(0xFF100D40),
+                    color = MaterialTheme.colorScheme.primary,
                 )
             )
 
@@ -156,24 +147,26 @@ private fun ContactSelector_Skeleton(
     modifier: Modifier
 ) {
     Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
+        modifier = modifier, verticalAlignment = Alignment.CenterVertically
     ) {
         SkeletonShape(
-            modifier = Modifier.size(48.dp),
-            shape = CircleShape
+            modifier = Modifier.size(48.dp), shape = CircleShape
         )
 
         Spacer(Modifier.width(16.dp))
 
         Column(verticalArrangement = Arrangement.SpaceBetween) {
-            SkeletonShape(modifier = Modifier
-                .width(100.dp)
-                .height(14.dp))
+            SkeletonShape(
+                modifier = Modifier
+                    .width(100.dp)
+                    .height(14.dp)
+            )
             Spacer(Modifier.height(8.dp))
-            SkeletonShape(modifier = Modifier
-                .width(120.dp)
-                .height(16.dp))
+            SkeletonShape(
+                modifier = Modifier
+                    .width(120.dp)
+                    .height(16.dp)
+            )
         }
     }
 }
@@ -185,13 +178,10 @@ fun ContactSelector_Preview() {
         Column(
             Modifier
                 .fillMaxSize()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+                .padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             ContactPicker(
-                modifier = Modifier.fillMaxWidth(),
-                selectedContact = null,
-                isLoading = false
+                modifier = Modifier.fillMaxWidth(), selectedContact = null, isLoading = false
             )
 
             ContactPicker(
@@ -201,9 +191,7 @@ fun ContactSelector_Preview() {
             )
 
             ContactPicker(
-                modifier = Modifier.fillMaxWidth(),
-                selectedContact = null,
-                isLoading = true
+                modifier = Modifier.fillMaxWidth(), selectedContact = null, isLoading = true
             )
         }
     }

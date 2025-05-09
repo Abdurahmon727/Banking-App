@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -53,7 +54,7 @@ fun AccountActionPanel(
                         lineHeight = 20.sp,
                         fontFamily = primaryFontFamily,
                         fontWeight = FontWeight.Normal,
-                        color = Color(0xFF100D40),
+                        color = Color(0xFFF05324),
                     )
                 )
 
@@ -66,7 +67,7 @@ fun AccountActionPanel(
                             fontSize = 16.sp,
                             fontFamily = primaryFontFamily,
                             fontWeight = FontWeight.SemiBold,
-                            color = Color(0xFF100D40),
+                            color = Color(0xFFF05324),
                         )
                     )
                 } else {
@@ -122,7 +123,7 @@ fun AccountActionPanel_Skeleton() {
                         lineHeight = 20.sp,
                         fontFamily = primaryFontFamily,
                         fontWeight = FontWeight.Normal,
-                        color = Color(0xFF100D40),
+                        color = MaterialTheme.colorScheme.primary,
                     )
                 )
 

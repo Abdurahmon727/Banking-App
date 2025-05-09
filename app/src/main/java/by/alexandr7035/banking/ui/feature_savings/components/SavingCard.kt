@@ -83,7 +83,7 @@ fun SavingCard(
                         lineHeight = 20.sp,
                         fontFamily = primaryFontFamily,
                         fontWeight = FontWeight.SemiBold,
-                        color = Color(0xFF100D40),
+                        color = Color(0xFFF05324),
                     ),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
@@ -96,7 +96,7 @@ fun SavingCard(
                     style = TextStyle(
                         fontSize = 12.sp, fontFamily = primaryFontFamily, fontWeight = FontWeight.Normal
                     ),
-                    color = Color(0xFF100D40),
+                    color = Color(0xFFF05324),
                 )
             }
 

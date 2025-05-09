@@ -111,7 +111,7 @@ fun PercentageIndicator(
             style = TextStyle(
                 fontFamily = primaryFontFamily,
                 fontWeight = FontWeight.Medium,
-                color = Color(0xFF100D40),
+                color = Color(0xFFF05324),
                 textAlign = TextAlign.Center,
             ),
             textAlignment = Alignment.Center,

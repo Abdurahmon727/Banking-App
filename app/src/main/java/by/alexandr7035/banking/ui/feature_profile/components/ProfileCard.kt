@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -125,7 +126,7 @@ private fun ProfileCard_Content(profile: ProfileUi) {
 
         Box(
             modifier = Modifier
-                .border(width = 1.dp, color = Color(0xFF100D40), shape = RoundedCornerShape(size = 32.dp))
+                .border(width = 1.dp, color = Color(0xFFF05324), shape = RoundedCornerShape(size = 32.dp))
                 .padding(vertical = 6.dp, horizontal = 18.dp),
             contentAlignment = Alignment.Center
         ) {
@@ -136,7 +137,7 @@ private fun ProfileCard_Content(profile: ProfileUi) {
                     lineHeight = 14.sp,
                     fontFamily = primaryFontFamily,
                     fontWeight = FontWeight(500),
-                    color = Color(0xFF100D40),
+                    color = MaterialTheme.colorScheme.primary,
                 )
             )
         }

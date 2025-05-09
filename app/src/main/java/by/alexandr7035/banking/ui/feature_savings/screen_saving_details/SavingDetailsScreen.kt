@@ -184,7 +184,7 @@ fun SavingDetailsScreen_Ui(
                         fontSize = 18.sp,
                         fontFamily = primaryFontFamily,
                         fontWeight = FontWeight.SemiBold,
-                        color = Color(0xFF100D40),
+                        color = MaterialTheme.colorScheme.primary,
                     ),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
@@ -199,7 +199,7 @@ fun SavingDetailsScreen_Ui(
                         fontFamily = primaryFontFamily,
                         fontWeight = FontWeight.Normal
                     ),
-                    color = Color(0xFF100D40),
+                    color = MaterialTheme.colorScheme.primary,
                 )
             }
         }

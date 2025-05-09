@@ -45,24 +45,25 @@ fun ScreenSectionDivider(
                 fontSize = 16.sp,
                 fontFamily = primaryFontFamily,
                 fontWeight = FontWeight.SemiBold,
-                color = Color(0xFF100D40),
+                color = MaterialTheme.colorScheme.primary,
             )
         )
 
         if (actionLabel != null) {
             TextButton(
-                onClick = { onAction.invoke() },
-                enabled = actionEnabled
+                onClick = { onAction.invoke() }, enabled = actionEnabled
             ) {
                 Text(
-                    text = actionLabel.asString(), style = TextStyle(
+                    text = actionLabel.asString(),
+                    style = TextStyle(
                         fontSize = 14.sp,
                         lineHeight = 20.sp,
                         fontFamily = primaryFontFamily,
                         fontWeight = FontWeight(500),
-                        color = Color(0xFF100D40),
+                        color = MaterialTheme.colorScheme.primary,
+                    ),
+
                     )
-                )
             }
         }
     }

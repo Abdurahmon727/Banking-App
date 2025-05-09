@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -49,8 +50,7 @@ fun TransactionCard(
     modifier: Modifier = Modifier, transactionUi: TransactionUi
 ) {
     PrimaryCard(
-        modifier = modifier,
-        paddingValues = PaddingValues(16.dp)
+        modifier = modifier, paddingValues = PaddingValues(16.dp)
     ) {
         when (transactionUi.type) {
             TransactionType.TOP_UP -> TopUpTransactionCard(transactionUi = transactionUi)
@@ -64,16 +64,18 @@ private fun ContactTransactionCard(
     transactionUi: TransactionUi
 ) {
     Row(
-        modifier = Modifier.height(IntrinsicSize.Max), verticalAlignment = Alignment.CenterVertically
+        modifier = Modifier.height(IntrinsicSize.Max),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         // TODO placeholder
-        val imageReq =
-            ImageRequest.Builder(LocalContext.current).data(transactionUi.contact?.profilePictureUrl).decoderFactory(SvgDecoder.Factory())
-                .crossfade(true).build()
+        val imageReq = ImageRequest.Builder(LocalContext.current)
+            .data(transactionUi.contact?.profilePictureUrl).decoderFactory(SvgDecoder.Factory())
+            .crossfade(true).build()
 
         Box() {
             AsyncImage(
-                model = imageReq, modifier = Modifier
+                model = imageReq,
+                modifier = Modifier
                     .background(
                         color = Color(0xFFF2F2F2),
                         shape = CircleShape,
@@ -85,8 +87,7 @@ private fun ContactTransactionCard(
             )
 
             TransactionStatusMark(
-                modifier = Modifier.align(Alignment.TopEnd),
-                transactionUi = transactionUi
+                modifier = Modifier.align(Alignment.TopEnd), transactionUi = transactionUi
             )
         }
 
@@ -100,7 +101,8 @@ private fun ContactTransactionCard(
         ) {
 
             Text(
-                text = transactionUi.contact?.name ?: stringResource(R.string.unknown_user), style = TextStyle(
+                text = transactionUi.contact?.name ?: stringResource(R.string.unknown_user),
+                style = TextStyle(
                     fontSize = 14.sp,
                     lineHeight = 20.sp,
                     fontFamily = primaryFontFamily,
@@ -114,7 +116,7 @@ private fun ContactTransactionCard(
                     fontSize = 12.sp,
                     fontFamily = primaryFontFamily,
                     fontWeight = FontWeight(400),
-                    color = Color(0xFF100D40),
+                    color = Color(0xFFF05324),
                 )
             )
         }
@@ -127,7 +129,7 @@ private fun ContactTransactionCard(
                 lineHeight = 20.sp,
                 fontFamily = primaryFontFamily,
                 fontWeight = FontWeight(500),
-                color = Color(0xFF100D40),
+                color = Color(0xFFF05324),
             )
         )
     }
@@ -138,7 +140,8 @@ private fun TopUpTransactionCard(
     transactionUi: TransactionUi,
 ) {
     Row(
-        modifier = Modifier.height(IntrinsicSize.Max), verticalAlignment = Alignment.CenterVertically
+        modifier = Modifier.height(IntrinsicSize.Max),
+        verticalAlignment = Alignment.CenterVertically
     ) {
 
         Box() {
@@ -155,8 +158,7 @@ private fun TopUpTransactionCard(
             )
 
             TransactionStatusMark(
-                modifier = Modifier.align(Alignment.TopEnd),
-                transactionUi = transactionUi
+                modifier = Modifier.align(Alignment.TopEnd), transactionUi = transactionUi
             )
         }
 
@@ -185,7 +187,7 @@ private fun TopUpTransactionCard(
                     fontSize = 12.sp,
                     fontFamily = primaryFontFamily,
                     fontWeight = FontWeight(400),
-                    color = Color(0xFF100D40),
+                    color = Color(0xFFF05324),
                 )
             )
         }
@@ -198,7 +200,7 @@ private fun TopUpTransactionCard(
                 lineHeight = 20.sp,
                 fontFamily = primaryFontFamily,
                 fontWeight = FontWeight(500),
-                color = Color(0xFF100D40),
+                color = MaterialTheme.colorScheme.primary,
             )
         )
     }
@@ -233,16 +235,14 @@ fun TransactionCardUi_Preview() {
 
 @Composable
 private fun TransactionStatusMark(
-    modifier: Modifier,
-    transactionUi: TransactionUi
+    modifier: Modifier, transactionUi: TransactionUi
 ) {
 
     val status = if (transactionUi.recentStatus == TransactionStatus.PENDING) {
         transactionUi.statusFlow.collectAsStateWithLifecycle(
             initialValue = transactionUi.recentStatus
         ).value
-    }
-    else {
+    } else {
         transactionUi.recentStatus
     }
 

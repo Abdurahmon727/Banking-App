@@ -119,7 +119,7 @@ fun ContactCard(
                         fontSize = 12.sp,
                         fontFamily = primaryFontFamily,
                         fontWeight = FontWeight.Normal,
-                        color = Color(0xFF100D40),
+                        color = Color(0xFFF05324),
                     ),
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1
