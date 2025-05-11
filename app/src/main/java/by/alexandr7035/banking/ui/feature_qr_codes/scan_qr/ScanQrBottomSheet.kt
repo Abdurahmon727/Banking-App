@@ -29,7 +29,7 @@ import com.journeyapps.barcodescanner.DecoratedBarcodeView
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScanQrDialog(
+fun ScanQrBottomSheet(
     onDismiss: () -> Unit,
     onScanResultContent: @Composable (
         qrCode: String,
@@ -39,7 +39,7 @@ fun ScanQrDialog(
 ) {
     val lifecycle = LocalLifecycleOwner.current.lifecycle
 
-    val dialogState = rememberModalBottomSheetState(
+    val sheetState = rememberModalBottomSheetState(
         skipPartiallyExpanded = true
     )
 
@@ -47,7 +47,7 @@ fun ScanQrDialog(
         onDismissRequest = {
             onDismiss()
         },
-        sheetState = dialogState,
+        sheetState = sheetState,
         containerColor = MaterialTheme.colorScheme.background,
     ) {
         val scannedQr = remember {

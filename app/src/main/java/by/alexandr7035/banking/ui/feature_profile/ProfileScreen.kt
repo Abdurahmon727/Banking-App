@@ -59,7 +59,7 @@ import by.alexandr7035.banking.ui.feature_qr_codes.ShowQrDialog
 import by.alexandr7035.banking.ui.feature_profile.menu.MenuEntry
 import by.alexandr7035.banking.ui.feature_profile.menu.MenuItemsList
 import by.alexandr7035.banking.ui.feature_profile.menu.MenuItem
-import by.alexandr7035.banking.ui.feature_qr_codes.scan_qr.ScanQrDialog
+import by.alexandr7035.banking.ui.feature_qr_codes.scan_qr.ScanQrBottomSheet
 import by.alexandr7035.banking.ui.theme.primaryFontFamily
 import de.palm.composestateevents.EventEffect
 import org.koin.androidx.compose.koinViewModel
@@ -136,7 +136,7 @@ fun ProfileScreen(
         }
 
         if (state.showScanQrDialog) {
-            ScanQrDialog(
+            ScanQrBottomSheet(
                 onDismiss = {
                     viewModel.emitIntent(
                         ProfileScreenIntent.ToggleScanQrDialog(
