@@ -26,5 +26,5 @@
 -dontwarn com.google.errorprone.annotations.Immutable
 -dontwarn com.google.errorprone.annotations.RestrictedApi
 
--keep class by.alexandr7035.banking.ui.app_host.navigation.model.NavDestinations
--keep class by.alexandr7035.banking.ui.app_host.navigation.model.PrimaryDestination
+-keep class uz.inha.chads.ui.app_host.navigation.model.NavDestinations
+-keep class uz.inha.chads.ui.app_host.navigation.model.PrimaryDestination

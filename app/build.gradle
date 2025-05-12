@@ -9,7 +9,7 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
-    namespace 'by.alexandr7035.banking'
+    namespace 'uz.inha.chads'
     compileSdk 34
 
     signingConfigs {
@@ -22,7 +22,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "by.alexandr7035.banking"
+        applicationId "uz.inha.chads"
         minSdk 23
         targetSdk 34
         versionCode 100
