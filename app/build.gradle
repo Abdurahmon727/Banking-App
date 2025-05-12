@@ -129,9 +129,14 @@ dependencies {
 
     implementation 'com.guolindev.permissionx:permissionx:1.7.1'
 
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+
     // QR lib with ML kit
     implementation("com.google.mlkit:barcode-scanning:17.3.0")
     implementation("androidx.camera:camera-mlkit-vision:1.4.1")
+    implementation("androidx.camera:camera-lifecycle:1.4.1")
     implementation('com.journeyapps:zxing-android-embedded:4.3.0') { transitive = false }
     implementation("com.google.zxing:core:3.3.0")
+    // Permission helper
+    implementation("com.google.accompanist:accompanist-permissions:0.34.0")
 }
