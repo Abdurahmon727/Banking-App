@@ -13,8 +13,7 @@ import androidx.fragment.app.FragmentActivity
 import uz.inha.chads.ui.app_host.AppContainerScreen
 import uz.inha.chads.ui.theme.BankingAppTheme
 
-// AppCompatActivity extends FragmentActivity which extends ComponentActivity
-// Need FragmentActivity at least for biometrics
+
 class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
